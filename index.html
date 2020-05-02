@@ -3,12 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Sorting Hats</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Sorting Hats</h1>
   
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to the School of Hog Warts!</h1>
+    <p class="lead">You are about to venture into the school of wizardry that at one time was the home of former students such as Harry Potter, Hermione Granger, Ron Weasley, and Draco Malfoy! Not only will your skills be tested, but you will journey into a world of what it takes to be the next master of magic!</p>
+    <hr class="my-4">
+    <p>Once you click on the button below you will be sorted into a house. The following houses you will be assigned to will either be Gryffindor, Ravenclaw, Slytherin, or Hufflepuff.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" onclick="location.href='#container-form';" role="button">Lets start sorting!</a>
+    </p>
+  </div>
+
+  <div id="container-form">
+    <form>
+      <div class="form-group">
+        <label for="exampleInputName">Student's Name:</label>
+        <input type="name" id="studentName" class="form-control" placeholder="Enter name here" aria-describedby="nameHelp">
+        <small id="emailHelp" class="form-text text-muted">This is what you will be called for the remainder of the year.</small>
+      </div>
+      <button type="button" id="sort-btn" class="btn btn-primary">Start Sorting</button>
+    </form>
+  </div>
+
+  <div id="container-card"></div>
+
+
+
+
+
   <script src="main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
