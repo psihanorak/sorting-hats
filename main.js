@@ -1,65 +1,57 @@
-/*save user input from form to push into an array*/
-var students = [];
-
-const addStudent = (event) => {
-  let student = {
-    name: document.getElementById('studentName').value
+/*create alert window when no input is entered*/
+function warning() {
+  if (document.getElementById('studentName').value == "") {
+    alert('Please enter your name in order to be assigned a house!');
+    return false;  
   }
-  students.push(student);
-  document.forms[0].reset(); /*clear form for next name*/
-  console.log(student)
 }
 
 /*create array for houses*/
-const house = [
-  {
-    name: '${students}',
-    type: 'Gryffindor'
-  },
-  {
-    name: '${students}',
-    type: 'Ravenclaw'
-  },
-  {
-    name: '${students}',
-    type: 'Slytherin'
-  },
-  {
-    name: '${students}',
-    type: 'Hufflepuff'
-  },
-  {
-    name: '${students}',
-    type: 'Gryffindor'
-  },
-  {
-    name: '${students}',
-    type: 'Ravenclaw'
-  },
-  {
-    name: '${students}',
-    type: 'Slytherin'
-  },
-  {
-    name: '${students}',
-    type: 'Hufflepuff'
-  }
-];
+const house = ['Gryffindor', 'Ravenclaw', 'Slytherin', 'Hufflepuff'];
+const sortStudent = [];
 
+const assignHouse = () => {
+  let random = Math.floor(Math.random() * (house.length));
+    document.getElementById('sort-btn').value = house[random];
+    sortStudent.push(document.getElementById('studentName').value, (house[random]));
+}
+
+/*sort students*/
+let students = [];
+let studentIndex = 0;
+
+const sortBtn = () => {
+  if (warning() == true) {
+    assignHouse ();
+    let newStudent = {};
+    newStudent ['name'] = document.getElementById('studentName').value;
+    newStudent ['house'] = house[Math.floor(Math.random() * (house.length))];
+    newStudent ['uniqueId'] = studentIndex;
+    console.log(newStudent);
+    students.push(newStudent);
+    console.log(students);
+    buildStudentCards(students);
+    document.getElementById('studentName').value = null;
+    studentIndex++
+  }
+
+}
+
+/*create dom for cards*/
 const printToDom = (selector, textToPrint) => {
   const selectedDiv = document.querySelector(selector);
   selectedDiv.innerHTML = textToPrint;
 }
 
-const buildHouse = (array) => {
+const buildHouse = (students) => {
   let domString = '';
 
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < students.length; i++) {
     domString += `<div class="card" style="width: 18rem;">
                     <div class="card-body">
-                      <h5 class="card-title">${house[i].name}</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">${house[i].type}</h6>
-                      <button type="button" id="expel-btn" class="btn btn-primary btn-sm">Expel</button>
+                      <h5 class="card-title">${students[i].name}</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">${students[i].house}</h6>
+                      <button type="button" id=${students[i].uniqueId} class="btn btn-primary btn-sm">Expel</button>
                     </div>
                   </div>`;
   }
@@ -68,11 +60,11 @@ const buildHouse = (array) => {
 }
 
 const clickEvent = () => {
-  document.querySelector('#sort-btn').addEventListener('click', addStudent);
+  document.querySelector('#sort-btn').addEventListener('click', sortBtn);
 };
 
 const init = () => {
-  buildHouse(house);
+  buildHouse
   clickEvent();
 }
 
