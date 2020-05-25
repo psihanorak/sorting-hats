@@ -14,33 +14,45 @@ body {
   margin: 0px 0px 10px;
 }
 
-#container-card {
+div#container-card {
   display: flex;
+  justify-content: center;
   text-align: center;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
+  flex-wrap: wrap-reverse;
   margin-top: 50px;
-  margin-bottom: 100px;
 }
 
-.card {
+div.card {
   border: 2px solid black;
   margin: 40px 0px;
   border-radius: 10px;
+  width: 300px;
 }
 
 .card-body {
   padding: 20px 0px;
 }
 
-.card-title {
-  padding: 10px;
+h5.card-title {
+  font-size: 30px;
+}
+
+p.card-text {
+  font-size: 20px;
 }
 
 .card-subtitle {
   padding: 10px;
 }
 
-#expel-btn {
-  padding: 0px 20px;
+a.btn.btn-primary {
+  width: 125px;
+}
+
+button#startSort.btn.btn-primary {
+  width: 125px;
+}
+
+a#start-sort.btn.btn-primary.btn-lg {
+  width: 250px;
 }

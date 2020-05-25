@@ -9,24 +9,24 @@
 </head>
 <body>
   
-  <div class="jumbotron">
+  <div id="container-jumbotron" class="jumbotron">
     <h1 class="display-4">Welcome to the School of Hog Warts!</h1>
     <p class="lead">You are about to venture into the school of wizardry that at one time was the home of former students such as Harry Potter, Hermione Granger, Ron Weasley, and Draco Malfoy! Not only will your skills be tested, but you will journey into a world of what it takes to be the next master of magic!</p>
     <hr class="my-4">
     <p>Once you click on the button below you will be sorted into a house. The following houses you will be assigned to will either be Gryffindor, Ravenclaw, Slytherin, or Hufflepuff.</p>
     <p class="lead">
-      <a class="btn btn-primary btn-lg" onclick="location.href='#container-form';" role="button">Lets start sorting!</a>
+      <a id="start-sort" class="btn btn-primary btn-lg" role="button">Lets start sorting!</a>
     </p>
   </div>
 
   <div id="container-form">
     <form>
-      <div class="form-group">
-        <label for="exampleInputName">Student's Name:</label>
-        <input type="name" id="studentName" class="form-control" placeholder="Enter name here" aria-describedby="nameHelp">
+      <div id="studentForm" class="form-group">
+        <label for="studentName">Student's Name:</label>
+        <input type="text" id="studentName" class="form-control" placeholder="Enter name here" aria-describedby="nameHelp">
         <small id="emailHelp" class="form-text text-muted">This is what you will be called during the remainder of the year.</small>
       </div>
-      <button type="button" id="startSort" class="btn btn-primary">Start Sorting</button>
+      <button type="button" id="startSort" class="btn btn-primary" value="Submit">Sort</button>
     </form>
   </div>
 
