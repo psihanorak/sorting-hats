@@ -5,7 +5,7 @@ body {
 #container-form {
   text-align: center;
   border: 2px solid black;
-  margin: 575px 50px 0px;
+  margin: 75px 50px 0px;
   padding: 20px 60px;
   border-radius: 10px;
 }
@@ -14,12 +14,13 @@ body {
   margin: 0px 0px 10px;
 }
 
-div#container-card {
+div#container-student {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
   text-align: center;
-  flex-wrap: wrap-reverse;
-  margin-top: 50px;
+  margin-top: 150px;
 }
 
 div.card {
