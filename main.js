@@ -1,12 +1,12 @@
 // Need to jump to the student form when "start sorting" button is clicked.
+document.getElementById('container-form').hidden = true;
 document.getElementById('start-sort').addEventListener('click', function() {
   document.getElementById('container-jumbotron').hidden = true;
   document.getElementById('container-form').hidden = false;
 }, false);
 
-// Empty array to store students.
+// Empty array to store students and army.
 let students = [];
-let studentId = 0;
 
 // Array used to store the four houses.
 const houses = ['Gryffindor','Ravenclaw', 'Slytherin', 'Hufflepuff'];
@@ -24,18 +24,28 @@ const createNewStudent = () => {
   const newStudent = {
     name: name,
     house: randomHouse(),
-    id: studentId
+    id: `${Date.now()}`
   };
-
-  studentId++
+  
   students.unshift(newStudent);
   createStudentCards(students);
-};
+}
 
-// Utility function created below.
+// Utility functions.
 const printToDom = (selector, textToPrint) => {
   document.querySelector(selector).innerHTML = textToPrint;
 }
+
+// Find the index of the student by their unique ID.
+const getStudentIndexById = studentId => students.findIndex(student => student.id === studentId);
+
+// Button events to allow looping within the DOM string.
+const clickEventAttachment = (selector, functionToAttach) => {
+  const buttons = document.querySelectorAll(selector);
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', functionToAttach);
+  }
+};
 
 // Sorts a student into a random house or notifies the user to enter their name.
 const sortStudent = () => {
@@ -54,21 +64,34 @@ const createStudentCards = (studentCollection) => {
     for (let i = 0; i < studentCollection.length; i++) {
       const student = studentCollection[i]
       domString += `<div style="margin: 0px 30px 50px">
-                      <div class="card">
+                      <div id="${student.id}" class="card">
                         <div class="card-body">
                           <h5 class="card-title">${student.name}</h5>
                           <p class="card-text">${student.house}</p>
-                          <a href="#" id="${student.id}" class="btn btn-primary">Expel</a>
+                          <a href="#" class="btn btn-primary expel-student">Expel</a>
                         </div>
                       </div>
                     </div>`;
     };
 
-  printToDom('#container-card', domString);
+  printToDom('#container-student', domString);
+
+  clickEventAttachment('.expel-student', expelStudent)
+};
+
+// Event functions.
+const clickEvents = () => {
+  document.getElementById('startSort').addEventListener('click', sortStudent);
+};
+
+const expelStudent = (e) => {
+  const studentId = e.target.closest('.card').id;
+  students.splice(getStudentIndexById(studentId), 1);
+  createStudentCards(students);
 };
 
 const init = () => {
-  document.getElementById('startSort').addEventListener('click', sortStudent);
+  clickEvents();
 };
 
 init();
