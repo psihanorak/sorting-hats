@@ -8,7 +8,7 @@ document.getElementById('start-sort').addEventListener('click', function() {
 // Empty array to store students and army.
 let students = [];
 
-// Array used to store the four houses.
+// Array of the houses that the students will be assigned.
 const houses = ['Gryffindor','Ravenclaw', 'Slytherin', 'Hufflepuff'];
 
 // Generates a random house to assign the student once they submit their name in the form.
@@ -67,7 +67,7 @@ const createStudentCards = (studentCollection) => {
                       <div id="${student.id}" class="card">
                         <div class="card-body">
                           <h5 class="card-title">${student.name}</h5>
-                          <p class="card-text">${student.house}</p>
+                          <p class="card-text ${student.house}">${student.house}</p>
                           <a href="#" class="btn btn-primary expel-student">Expel</a>
                         </div>
                       </div>

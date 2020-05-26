@@ -58,6 +58,26 @@ a#start-sort.btn.btn-primary.btn-lg {
   width: 250px;
 }
 
+p.card-text.Gryffindor {
+  background-color: #b71c1c;
+  color: white;
+}
+
+p.card-text.Ravenclaw {
+  background-color: #0d47a1;
+  color: white;
+}
+
+p.card-text.Slytherin {
+  background-color: #1b5e20;
+  color: white;
+}
+
+p.card-text.Hufflepuff {
+  background-color: #fdd835;
+  color: white;
+}
+
 /* ----------- iPhone X ----------- */
 
 /* Portrait and Landscape */
