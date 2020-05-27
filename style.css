@@ -14,13 +14,22 @@ body {
   margin: 0px 0px 10px;
 }
 
+div#container-buttons {
+  justify-content: space-evenly;
+  display: inline-flex;
+  margin: 50px 0px 50px;
+}
+
 div#container-student {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   text-align: center;
-  margin-top: 150px;
+}
+
+.house-button {
+  width: 200px;
 }
 
 div.card {

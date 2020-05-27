@@ -13,7 +13,7 @@
     <h1 class="display-4">Welcome to the School of Hog Warts!</h1>
     <p class="lead">You are about to venture into the school of wizardry that at one time was the home of former students such as Harry Potter, Hermione Granger, Ron Weasley, and Draco Malfoy! Not only will your skills be tested, but you will journey into a world of what it takes to be the next master of magic!</p>
     <hr class="my-4">
-    <p>Once you click on the button below you will be sorted into a house. The following houses you will be assigned to will either be Gryffindor, Ravenclaw, Slytherin, or Hufflepuff.</p>
+    <p>Once you click on the button below you will be sorted into a house. The following houses you will be assigned to will either be Gryffindor, Ravenclaw, Slytherin, or Hufflepuff. But, a word of caution, if you shall create any problems within the confines of the school you may just be expelled to Voldermort's realm!</p>
     <p class="lead">
       <a id="start-sort" class="btn btn-primary btn-lg" role="button">Lets start sorting!</a>
     </p>
@@ -24,10 +24,19 @@
       <div id="studentForm" class="form-group">
         <label for="studentName">Student's Name:</label>
         <input type="text" id="studentName" class="form-control" placeholder="Enter name here" aria-describedby="nameHelp">
-        <small id="emailHelp" class="form-text text-muted">This is what you will be called during the remainder of the year.</small>
+        <small id="emailHelp" class="form-text text-muted">This is what you will be called during the remainder of the year so choose wisely.</small>
       </div>
       <button type="button" id="startSort" class="btn btn-primary" value="Submit">Sort</button>
     </form>
+  </div>
+
+  <div id="container-buttons" class="container-fluid all">
+    <button type="button" id="all" class="btn btn-outline-secondary">All Houses</button>
+    <button type="button" id="gryffindor" class="btn btn-outline-danger">Gryffindor</button>
+    <button type="button" id="ravenclaw" class="btn btn-outline-primary">Ravenclaw</button>
+    <button type="button" id="slytherin" class="btn btn-outline-success">Slytherin</button>
+    <button type="button" id="hufflepuff" class="btn btn-outline-warning">Hufflepuff</button>
+    <button type="button" id="voldermort" class="btn btn-outline-dark">Voldermort's Army</button>
   </div>
 
   <div id="container-student"></div>
