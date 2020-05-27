@@ -1,8 +1,10 @@
 // Need to jump to the student form when "start sorting" button is clicked.
+document.getElementById('container-buttons').hidden = true;
 document.getElementById('container-form').hidden = true;
 document.getElementById('start-sort').addEventListener('click', function() {
   document.getElementById('container-jumbotron').hidden = true;
   document.getElementById('container-form').hidden = false;
+  document.getElementById('container-buttons').hidden = false;
 }, false);
 
 // Empty array to store students and army.
@@ -63,7 +65,7 @@ const createStudentCards = (studentCollection) => {
 
     for (let i = 0; i < studentCollection.length; i++) {
       const student = studentCollection[i]
-      domString += `<div style="margin: 0px 30px 50px">
+      domString += `<div style="margin: 0px 30px 0px">
                       <div id="${student.id}" class="card">
                         <div class="card-body">
                           <h5 class="card-title">${student.name}</h5>
@@ -73,7 +75,7 @@ const createStudentCards = (studentCollection) => {
                       </div>
                     </div>`;
     };
-
+  console.log(students);
   printToDom('#container-student', domString);
 
   clickEventAttachment('.expel-student', expelStudent)
@@ -89,6 +91,49 @@ const expelStudent = (e) => {
   students.splice(getStudentIndexById(studentId), 1);
   createStudentCards(students);
 };
+
+const allHousesButton = document.getElementById('all');
+const gryffindorButton = document.getElementById('gryffindor');
+const ravenclawButton = document.getElementById('ravenclaw');
+const slytherinButton = document.getElementById('slytherin');
+const hufflepuffButton = document.getElementById('hufflepuff');
+const voldermortButton = document.getElementById('voldermort');
+
+// Sort cards by houses.
+const filterHouses = (house) => {
+  const filteredHouse = [];
+
+  for (let i = 0; i < students.length; i++) {
+    if (students[i].house === house) {
+      filteredHouse.push(students[i])
+    }
+  }
+  createStudentCards(filteredHouse);
+}
+
+allHousesButton.addEventListener('click', function() {
+  createStudentCards(students)
+})
+
+gryffindorButton.addEventListener('click', function() {
+  filterHouses('Gryffindor')
+})
+
+ravenclawButton.addEventListener('click', function() {
+  filterHouses('Ravenclaw')
+})
+
+slytherinButton.addEventListener('click', function() {
+  filterHouses('Slytherin')
+})
+
+hufflepuffButton.addEventListener('click', function() {
+  filterHouses('Hufflepuff')
+})
+
+voldermortButton.addEventListener('click', function() {
+  filterHouses('Voldermort')
+})
 
 const init = () => {
   clickEvents();
