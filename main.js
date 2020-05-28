@@ -1,14 +1,18 @@
 // Need to jump to the student form when "start sorting" button is clicked.
 document.getElementById('container-buttons').hidden = true;
 document.getElementById('container-form').hidden = true;
+document.getElementById('container-houses').hidden = true;
 document.getElementById('start-sort').addEventListener('click', function() {
   document.getElementById('container-jumbotron').hidden = true;
+  document.getElementById('container-background').hidden = true;
   document.getElementById('container-form').hidden = false;
   document.getElementById('container-buttons').hidden = false;
+  document.getElementById('container-houses').hidden = false;
 }, false);
 
 // Empty array to store students and army.
-let students = [];
+const students = [];
+const army = [];
 
 // Array of the houses that the students will be assigned.
 const houses = ['Gryffindor','Ravenclaw', 'Slytherin', 'Hufflepuff'];
@@ -75,11 +79,29 @@ const createStudentCards = (studentCollection) => {
                       </div>
                     </div>`;
     };
-  console.log(students);
-  printToDom('#container-student', domString);
 
+  printToDom('#container-student', domString);
   clickEventAttachment('.expel-student', expelStudent)
 };
+
+// DOM string to loop Voldermort's Army into and build the cards.
+const createArmyCards = (armyCollection) => {
+  let domString = '';
+
+    for (let i = 0; i < armyCollection.length; i++) {
+      const army = armyCollection[i]
+      domString += ` <div class="card" style="margin: 30px 30px 0px">
+                    <img class="card-img-top" src="./images/voldermort_army.png" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">${army[0].name}</h5>
+                        <p class="card-text">Voldermort's Army</p>
+                      </div>
+                    </div>`;
+    };
+
+  printToDom('#container-army', domString);
+
+}
 
 // Event functions.
 const clickEvents = () => {
@@ -88,9 +110,12 @@ const clickEvents = () => {
 
 const expelStudent = (e) => {
   const studentId = e.target.closest('.card').id;
-  students.splice(getStudentIndexById(studentId), 1);
+  army.push(students.splice(getStudentIndexById(studentId), 1));
+  console.log(army);
   createStudentCards(students);
+  createArmyCards(army);
 };
+
 
 const allHousesButton = document.getElementById('all');
 const gryffindorButton = document.getElementById('gryffindor');
@@ -106,8 +131,9 @@ const filterHouses = (house) => {
   for (let i = 0; i < students.length; i++) {
     if (students[i].house === house) {
       filteredHouse.push(students[i])
-    }
+    }  
   }
+
   createStudentCards(filteredHouse);
 }
 
@@ -131,12 +157,10 @@ hufflepuffButton.addEventListener('click', function() {
   filterHouses('Hufflepuff')
 })
 
-voldermortButton.addEventListener('click', function() {
-  filterHouses('Voldermort')
-})
-
 const init = () => {
   clickEvents();
 };
 
 init();
+
+// once expel button is clicked the student needs to be pushed into army array
