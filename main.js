@@ -1,4 +1,3 @@
-// Need to jump to the student form when "start sorting" button is clicked.
 document.getElementById('container-buttons').hidden = true;
 document.getElementById('container-form').hidden = true;
 document.getElementById('container-houses').hidden = true;
@@ -10,20 +9,16 @@ document.getElementById('start-sort').addEventListener('click', function() {
   document.getElementById('container-houses').hidden = false;
 }, false);
 
-// Empty array to store students and army.
 const students = [];
 const army = [];
 
-// Array of the houses that the students will be assigned.
 const houses = ['Gryffindor','Ravenclaw', 'Slytherin', 'Hufflepuff'];
 
-// Generates a random house to assign the student once they submit their name in the form.
 const randomHouse = () => {
   const house = Math.floor(Math.random() * 4);
   return houses[house];
   }
 
-// Create a new student once the input is captured and add into the student array and create student card.
 const createNewStudent = () => {
   const name = document.getElementById('studentName').value;
   
@@ -37,15 +32,12 @@ const createNewStudent = () => {
   createStudentCards(students);
 }
 
-// Utility functions.
 const printToDom = (selector, textToPrint) => {
   document.querySelector(selector).innerHTML = textToPrint;
 }
 
-// Find the index of the student by their unique ID.
 const getStudentIndexById = studentId => students.findIndex(student => student.id === studentId);
 
-// Button events to allow looping within the DOM string.
 const clickEventAttachment = (selector, functionToAttach) => {
   const buttons = document.querySelectorAll(selector);
   for (let i = 0; i < buttons.length; i++) {
@@ -53,7 +45,6 @@ const clickEventAttachment = (selector, functionToAttach) => {
   }
 };
 
-// Sorts a student into a random house or notifies the user to enter their name.
 const sortStudent = () => {
   if (document.getElementById('studentName').value === '') {
     alert('Please enter your name in order to be placed into a school!');
@@ -63,7 +54,6 @@ const sortStudent = () => {
   }
 };
 
-// DOM string to loop students into and build the cards.
 const createStudentCards = (studentCollection) => {
   let domString = '';
 
@@ -84,7 +74,6 @@ const createStudentCards = (studentCollection) => {
   clickEventAttachment('.expel-student', expelStudent)
 };
 
-// DOM string to loop Voldermort's Army into and build the cards.
 const createArmyCards = (armyCollection) => {
   let domString = '';
 
@@ -103,7 +92,6 @@ const createArmyCards = (armyCollection) => {
 
 }
 
-// Event functions.
 const clickEvents = () => {
   document.getElementById('startSort').addEventListener('click', sortStudent);
 };
@@ -124,7 +112,6 @@ const slytherinButton = document.getElementById('slytherin');
 const hufflepuffButton = document.getElementById('hufflepuff');
 const voldermortButton = document.getElementById('voldermort');
 
-// Sort cards by houses.
 const filterHouses = (house) => {
   const filteredHouse = [];
 
@@ -162,5 +149,3 @@ const init = () => {
 };
 
 init();
-
-// once expel button is clicked the student needs to be pushed into army array
