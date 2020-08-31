@@ -11,7 +11,7 @@ Sorting Hats is an early project using Print To Dom with Javascript using a Harr
 2. Start up http-server by entering "hs" in the terminal console of your editor.
 3. In your browser, go where it is being served in this case http://0.0.0.0:8080.
 
-## Contributors
+## Developer
 * Phonesalo Sihanorak
 
 ## Screenshot
