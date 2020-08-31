@@ -15,3 +15,4 @@ Sorting Hats is an early project using Print To Dom with Javascript using a Harr
 * Phonesalo Sihanorak
 
 ## Screenshot
+<img width="1610" alt="Sorting Hats" src="https://user-images.githubusercontent.com/61893644/91680775-5bcc1580-eb1a-11ea-8c08-7e5342f5c608.png">
